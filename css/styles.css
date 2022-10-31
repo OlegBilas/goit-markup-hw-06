@@ -353,6 +353,13 @@ align-items: center;
 .hero-btn.form-btn{
   width: 200px;
 }
+
+.form-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .visially-hidden {
   position: absolute;
   white-space: nowrap;
@@ -670,8 +677,8 @@ h2.title {
   }
 }  
 
-/* FORMS */
 .mail-svg{
   width: 24px;
   height: 24px;
+  margin-left: 10px;
 }
