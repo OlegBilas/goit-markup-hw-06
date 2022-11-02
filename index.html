@@ -362,13 +362,15 @@
                     </li>
                 </ul>
             </div>
-            <form class="invitation">
+            <form class="form-mailing" autocomplete="off">
                 <p>Підпишіться на розсилку</p>
-                <div class="invitation-mailing">
-                    <label for="mail">E-mail</label>
-                    <input type="email" name="mailing" id="mail">
+                <div class="mailing-thumb">
+                    <div class="field-mailing">
+                        <input type="email" name="mailing" id="mailing" required>
+                        <label for="mailing">E-mail</label>
+                    </div>
                     <button class="hero-btn form-btn" type="submit">Підписатися
-                        <svg class="mail-svg">
+                        <svg class="mailing-svg">
                             <use href="./images/icons.svg#icon-form-send"></use>
                         </svg>
                     </button>
@@ -377,9 +379,40 @@
         </div>
     </footer>
     <div class="backdrop is-hidden" data-modal>
-        <div class="modal">
-            <button class="close-btn" type="button" data-modal-close></button>
-        </div>
+        <form class="modal">
+            <button class="modal-close-btn" type="button" data-modal-close>
+                <svg class="close-btn-svg">
+                    <use href="./images/icons.svg#icon-form-close"></use>
+                </svg>
+            </button>
+            <p>Залиште свої дані, ми вам передзвонимо</p>
+            <div class="inputs">
+                <div class="inputs-field">
+                    <label for="name">Ім'я</label>
+                    <input class="input" type="text" id="name">
+                        <svg class="input-svg">
+                            <use href="./images/icons.svg#icon-form-person"></use>
+                        </svg>
+                    </input>
+                </div>
+                <div class="inputs-field">
+                    <label for="tel">Телефон</label>
+                    <input class="input" type="tel" id="tel">
+                        <svg class="input-svg">
+                            <use href="./images/icons.svg#icon-form-phone"></use>
+                        </svg>
+                    </input>
+                </div>
+               <div class="inputs-field">
+                    <label for="email">Пошта</label>
+                    <input class="input" type="email" id="email">
+                        <svg class="input-svg">
+                            <use href="./images/icons.svg#icon-form-email"></use>
+                        </svg>
+                    </input>
+                </div>
+            </div>
+        </form>
     </div>
     <script src="./js/modal.js"></script>
 </body>

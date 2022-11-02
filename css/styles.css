@@ -11,7 +11,7 @@
 }
 /* GENERAL */
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 14px;
   letter-spacing: 0.03em;
   color: var(--main-color);
@@ -115,7 +115,7 @@ nav {
 }
 
 .current::after {
-  content: "";
+  content: '';
 
   position: absolute;
   top: 275%;
@@ -131,7 +131,7 @@ nav {
 .logo {
   margin-right: 93px;
 
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 26px;
@@ -194,12 +194,12 @@ footer .container {
 .link.logo.footer {
   margin: 0px 0px 20px;
 }
-.footer-social-list-links{
+.footer-social-list-links {
   margin-right: 93px;
 }
 
 .footer-social-list-links > p,
- .invitation>p{
+.form-mailing > p {
   margin-top: 12px;
   margin-bottom: 20px;
 
@@ -227,8 +227,7 @@ footer .container {
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
 
-  transition: color 250ms var(--timing-function),
-    background-color 250ms var(--timing-function);
+  transition: color 250ms var(--timing-function), background-color 250ms var(--timing-function);
 }
 .social-link:hover,
 .social-link:focus {
@@ -250,34 +249,55 @@ footer .social-link-svg {
   fill: var(--white-color);
 }
 
-.invitation-mailing{
-display: flex;
-align-items: center;
+.mailing-thumb {
+  display: flex;
+  align-items: center;
 }
-.invitation-mailing input{
+
+.field-mailing {
+  display: inline-block;
   position: relative;
 
+  margin-right: 12px;
+}
+.field-mailing input {
   width: 358px;
   height: 50px;
-  margin-right: 12px;
 
+  padding-left: 16px;
+
+  color: var(--white-color);
+  background-color: inherit;
   border: 1px solid rgba(255, 255, 255, 0.3);
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
-    border-radius: 4px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  border-radius: 4px;
 }
 
-.invitation-mailing label{
+.field-mailing label {
+  display: inline-block;
+
   position: absolute;
   top: 50%;
   left: 16px;
   transform: translateY(-50%);
+  transition: transform 250ms var(--timing-function);
 
   font-family: 'Roboto';
-    font-size: 16px;
-    line-height: calc(20/16);
+  font-size: 16px;
+  line-height: calc(20 / 16);
 
-    color: var(--footer-text);
+  color: var(--footer-text);
 }
+.mailing-svg {
+  width: 24px;
+  height: 24px;
+  margin-left: 10px;
+}
+
+.field-mailing input:focus + label {
+  transform: translate(-70px, -50%);
+}
+
 /* Studio */
 
 .list > .item:not(:last-child) {
@@ -306,11 +326,7 @@ align-items: center;
   color: var(--white-color);
 }
 .hero.section {
-  background-image: linear-gradient(
-      to bottom,
-      rgba(47, 48, 58, 0.4),
-      rgba(47, 48, 58, 0.4)
-    ),
+  background-image: linear-gradient(to bottom, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
     url(../images/hero-img.jpg);
   background-repeat: no-repeat;
   background-position: center;
@@ -337,8 +353,7 @@ align-items: center;
   border: transparent;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 
-  transition: background-color 250ms var(--timing-function),
-    box-shadow 250ms var(--timing-function);
+  transition: background-color 250ms var(--timing-function), box-shadow 250ms var(--timing-function);
 }
 .hero-btn:active,
 .hero-btn:hover,
@@ -350,11 +365,11 @@ align-items: center;
   cursor: pointer;
 }
 
-.hero-btn.form-btn{
+.hero-btn.form-btn {
   width: 200px;
 }
 
-.form-btn{
+.form-btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -561,8 +576,6 @@ h2.title {
 }
 .portfolio-link:hover,
 .portfolio-link:focus {
-  /* box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
-    1px 4px 6px rgba(0, 0, 0, 0.16); */
   animation: portfolio-link-hover 250ms var(--timing-function) forwards;
 }
 
@@ -636,49 +649,99 @@ h2.title {
   left: 50%;
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
-  transition: transform 250ms var(--timing-function),
-    opacity 250ms var(--timing-function);
+  transition: transform 250ms var(--timing-function), opacity 250ms var(--timing-function);
 
   min-width: 528px;
   min-height: 581px;
+  padding-top: 34px;
+  padding-bottom: 46px;
 
   background: var(--white-color);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
 }
-.close-btn {
+.modal-close-btn {
   position: absolute;
   top: 8px;
   right: 8px;
 
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.modal p {
+  margin-bottom: 12px;
+
+  font-weight: 700;
+  font-size: 20px;
+  line-height: calc(23 / 20);
+  text-align: center;
+
+  color: var(--header-color);
+}
+.close-btn-svg {
   width: 30px;
   height: 30px;
 
-  background-image: url(../images/close-btn.png);
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: transparent;
-  border: none;
+  fill: transparent;
 }
 
-@keyframes portfolio-link-hover{
-  from{
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12)ж
+.inputs {
+  width: 448px;
+  margin: 0 40px 20px;
+}
+
+.inputs-field label {
+  display: block;
+
+  margin-bottom: 4px;
+
+  font-weight: 400;
+  font-size: 12px;
+  line-height: calc(14 / 12);
+
+  letter-spacing: 0.01em;
+
+  color: var(--main-color);
+}
+
+.inputs-field input {
+  display: inline-block;
+  position: relative;
+
+  width: 448px;
+  height: 40px;
+  margin-bottom: 10px;
+
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+}
+
+.input .input-svg {
+  display: inline-block;
+  position: absolute;
+  top: 0px;
+  left: 12px;
+
+  width: 18px;
+  height: 18px;
+}
+
+@keyframes portfolio-link-hover {
+  from {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12) ж;
   }
-  50%{
+  50% {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06);
   }
-  to{
+  to {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
-        1px 4px 6px rgba(0, 0, 0, 0.16);
+      1px 4px 6px rgba(0, 0, 0, 0.16);
   }
-}  
-
-.mail-svg{
-  width: 24px;
-  height: 24px;
-  margin-left: 10px;
 }
