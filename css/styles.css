@@ -550,6 +550,8 @@ h2.title {
   background-color: var(--background-btn);
   border-radius: 4px;
   border: transparent;
+
+  transition: color 250ms var(--timing-function), background-color 250ms var(--timing-function);
 }
 .btn.common {
   padding-left: 25px;
@@ -674,6 +676,7 @@ h2.title {
   background-color: transparent;
   border: none;
   cursor: pointer;
+  outline: none;
 }
 .modal p {
   margin-bottom: 12px;
@@ -726,6 +729,9 @@ h2.title {
 
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
+  outline: none;
+
+  transition: border 250ms var(--timing-function), box-shadow 250ms var(--timing-function);
 }
 
 .inputs-field input:focus,
@@ -745,6 +751,7 @@ h2.title {
 
   width: 18px;
   height: 18px;
+  transition: fill 250ms var(--timing-function);
 }
 .inputs-field textarea {
   resize: none;
