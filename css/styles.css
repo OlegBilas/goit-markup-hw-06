@@ -269,6 +269,7 @@ footer .social-link-svg {
   color: var(--white-color);
   background-color: inherit;
   border: 1px solid rgba(255, 255, 255, 0.3);
+  outline: transparent;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
   border-radius: 4px;
 }
@@ -676,7 +677,12 @@ h2.title {
   background-color: transparent;
   border: none;
   cursor: pointer;
-  outline: none;
+  outline: transparent;
+  transition: stroke 250ms var(--timing-function);
+}
+.modal-close-btn:hover .close-btn-svg,
+.modal-close-btn:focus .close-btn-svg {
+  stroke: var(--accent-color);
 }
 .modal p {
   margin-bottom: 12px;
@@ -788,8 +794,8 @@ textarea::placeholder {
 
   color: var(--main-color);
 }
-.agreement-field label::before {
-  content: '';
+.accept,
+.no-accept {
   display: inline-block;
 
   position: absolute;
@@ -799,17 +805,21 @@ textarea::placeholder {
   width: 16px;
   height: 15px;
   transform: translateY(-50%);
+}
 
-  background-image: url(../images/no-accept.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+.accept {
+  opacity: 0;
+  transition: opacity 250ms var(--timing-function);
 }
-.agreement-field label::before {
-  background-image: url(../images/no-accept.svg);
+.no-accept {
+  opacity: 1;
+  transition: opacity 250ms var(--timing-function);
 }
-.agreement-field input:checked + label::before {
-  background-image: url(../images/accept.svg);
+.agreement-field input:checked ~ .accept {
+  opacity: 1;
+}
+.agreement-field input:checked ~ .no-accept {
+  opacity: 0;
 }
 
 .agreement-link {
